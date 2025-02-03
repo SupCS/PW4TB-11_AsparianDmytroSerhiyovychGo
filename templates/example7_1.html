@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад 7.1</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор для Прикладу 7.1</h1>
+        <form method="post">
+            <label>Розрахункове навантаження (Sм, кВА): <input type="text" name="Sm"></label>
+            <label>Струм короткого замикання (Iк, А): <input type="text" name="Ik"></label>
+            <label>Час дії струму КЗ (tф, с): <input type="text" name="Tf"></label>
+            <label>Номінальна напруга (Uном, кВ): <input type="text" name="Unom"></label>
+            <label>Розрахункова тривалість роботи (Тм, год): <input type="text" name="Tm"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .result}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Розрахунковий струм для нормального режиму: {{.Im}} A</p>
+            <p>Розрахунковий струм для післяаварійного режиму: {{.ImPa}} A</p>
+            <p>Економічний переріз: {{.Sek}} мм²</p>
+            <p>Мінімальний переріз для термічної стійкості: {{.Smin}} мм²</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

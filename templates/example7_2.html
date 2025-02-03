@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад 7.2</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор для Прикладу 7.2</h1>
+        <form method="post">
+            <label>Номінальна напруга (Uс.н, кВ): <input type="text" name="Usn"></label>
+            <label>Потужність короткого замикання (Sк, МВА): <input type="text" name="Sk"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .result}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Опір Xc: {{.Xc}} Ом</p>
+            <p>Опір Xt: {{.Xt}} Ом</p>
+            <p>Сумарний опір Xсум: {{.Xsum}} Ом</p>
+            <p>Початкове діюче значення струму трифазного КЗ (Ip0): {{.Ip0}} А</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>
